@@ -34,7 +34,7 @@ st.audio(audio_file)
 if audio_file is not None:
     upload_path = "data/"
     if not os.path.exists(upload_path):
-        os.makedirs(upload_path)
+        os.makedirs(upload_path, exist_ok=True)
     try:
         with open(os.path.join(upload_path, audio_file.name),"wb") as f:
             f.write(audio_file.getbuffer())
