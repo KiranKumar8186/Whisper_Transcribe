@@ -4,7 +4,6 @@ import time
 import os
 from pydub import AudioSegment
 from tempfile import NamedTemporaryFile
-from summarizer import Summarizer, TransformerSummarizer
 
 st.set_page_config(
     page_title="Elite_Notes",
