@@ -3,3 +3,5 @@ pydub==0.25.1
 summarizer==0.0.7
 openai==0.25.0
 git+https://github.com/openai/whisper.git
+ffmpeg==1.4
+ffmpeg-python==0.2.0
