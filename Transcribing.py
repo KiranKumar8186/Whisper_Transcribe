@@ -41,7 +41,6 @@ if audio_file is not None:
         st.success('AudioFile Saved')
     except Exception as e:
         st.error(f"Error while saving the file: {e}")
-    st.success('AudioFile Saved')
 
 if st.button('Transcribe Audio'):
     with st.spinner('whisperModel Loading'):
