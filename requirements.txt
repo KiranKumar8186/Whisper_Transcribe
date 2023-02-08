@@ -1,4 +1,5 @@
 streamlit==1.17.0
 pydub==0.25.1
 summarizer==0.0.7
+openai==0.25.0
 git+https://github.com/openai/whisper.git
