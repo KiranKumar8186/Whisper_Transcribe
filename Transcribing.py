@@ -32,6 +32,7 @@ st.audio(audio_file)
 
   #Saving the Audio file into the Temp_dir then we can use that audio file to transcribe
 if audio_file is not None:
+    upload_path = "data/"
     if not os.path.exists(upload_path):
         os.makedirs(upload_path)
     try:
