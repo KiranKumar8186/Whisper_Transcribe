@@ -57,47 +57,47 @@ if st.button('Transcribe Audio'):
 
 #-------------------------------------------------------------------------------------------------------------------------
 
-st.markdown("---")
+# st.markdown("---")
 
-import streamlit as st
-import openai
-import time
+# import streamlit as st
+# import openai
+# import time
 
-# Replace YOUR_API_KEY with your actual GPT-3 API key
-openai.api_key = "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"
+# # Replace YOUR_API_KEY with your actual GPT-3 API key
+# openai.api_key = "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"
 
 
-# Set the page title and add a banner image
-st.title("Sentiment Analysis")
-st.markdown("---")
-# Add a text input field and a button to submit the text
-text = st.text_area("Enter some text to analyze:")
-if st.button("Analyze"):
+# # Set the page title and add a banner image
+# st.title("Sentiment Analysis")
+# st.markdown("---")
+# # Add a text input field and a button to submit the text
+# text = st.text_area("Enter some text to analyze:")
+# if st.button("Analyze"):
 
-    with st.spinner('Analyzing Sentiment.....'):
-        time.sleep(3)    
-    # Use GPT-3 to analyze the sentiment of the text
-    model_engine = "text-davinci-002"
-    prompt = (
-        f"Analyze the sentiment of the following text:\n{text}\n"
-        "Indicate whether the sentiment is positive, neutral, or negative."
-    )
-    completions = openai.Completion.create(engine=model_engine, prompt=prompt, max_tokens=1024, n=1,stop=None,temperature=0.5)
-    sentiment_text = completions.choices[0].text
+#     with st.spinner('Analyzing Sentiment.....'):
+#         time.sleep(3)    
+#     # Use GPT-3 to analyze the sentiment of the text
+#     model_engine = "text-davinci-002"
+#     prompt = (
+#         f"Analyze the sentiment of the following text:\n{text}\n"
+#         "Indicate whether the sentiment is positive, neutral, or negative."
+#     )
+#     completions = openai.Completion.create(engine=model_engine, prompt=prompt, max_tokens=1024, n=1,stop=None,temperature=0.5)
+#     sentiment_text = completions.choices[0].text
 
-    # Parse the sentiment from the response text
-    if "positive" in sentiment_text.lower():
-        sentiment = "positive 👍"
+#     # Parse the sentiment from the response text
+#     if "positive" in sentiment_text.lower():
+#         sentiment = "positive 👍"
         
-    elif "neutral" in sentiment_text.lower():
-        sentiment = "neutral"
+#     elif "neutral" in sentiment_text.lower():
+#         sentiment = "neutral"
         
-    else:
-        sentiment = "negative 👎"
+#     else:
+#         sentiment = "negative 👎"
 
-    # Display the results in a visually appealing way
+#     # Display the results in a visually appealing way
     
-    st.markdown(f'<p style="text-align: left; color: black; background: lightyellow; font-size: 20px; margin : 15px auto;">The sentiment of the text is: {sentiment}</p>', unsafe_allow_html=True)
+#     st.markdown(f'<p style="text-align: left; color: black; background: lightyellow; font-size: 20px; margin : 15px auto;">The sentiment of the text is: {sentiment}</p>', unsafe_allow_html=True)
 
 
 
