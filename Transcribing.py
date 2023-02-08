@@ -64,7 +64,7 @@ import openai
 import time
 
 # Replace YOUR_API_KEY with your actual GPT-3 API key
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 # Set the page title and add a banner image
