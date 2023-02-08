@@ -32,11 +32,14 @@ st.audio(audio_file)
 
   #Saving the Audio file into the Temp_dir then we can use that audio file to transcribe
 if audio_file is not None:
-    upload_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "data"))
     if not os.path.exists(upload_path):
         os.makedirs(upload_path)
-    with open(os.path.join(upload_path, audio_file.name),"wb") as f:
-        f.write(audio_file.getbuffer())
+    try:
+        with open(os.path.join(upload_path, audio_file.name),"wb") as f:
+            f.write(audio_file.getbuffer())
+        st.success('AudioFile Saved')
+    except Exception as e:
+        st.error(f"Error while saving the file: {e}")
     st.success('AudioFile Saved')
 
 if st.button('Transcribe Audio'):
