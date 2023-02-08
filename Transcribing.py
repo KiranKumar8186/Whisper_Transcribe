@@ -32,7 +32,9 @@ st.audio(audio_file)
 
   #Saving the Audio file into the Temp_dir then we can use that audio file to transcribe
 if audio_file is not None:
-    upload_path = "data/"
+    upload_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "data"))
+    if not os.path.exists(upload_path):
+        os.makedirs(upload_path)
     with open(os.path.join(upload_path, audio_file.name),"wb") as f:
         f.write(audio_file.getbuffer())
     st.success('AudioFile Saved')
@@ -44,7 +46,7 @@ if st.button('Transcribe Audio'):
 
     if audio_file is not None:
         options = whisper.DecodingOptions(language='en', fp16=False)
-        transcription = model.transcribe(os.path.join("data", audio_file.name), **options.__dict__)
+        transcription = model.transcribe(os.path.join(upload_path, audio_file.name), **options.__dict__)
         final_transcript = transcription['text']
         st.markdown(f'<p style="padding: 10px; text-align: left; color:lightblack; background:#FFFACD ; font-size:15px; margin : 15px auto;">{final_transcript}</p>', unsafe_allow_html=True)
         st.success('Transcription Completed')
